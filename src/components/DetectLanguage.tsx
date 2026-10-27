@@ -56,6 +56,13 @@ function DetectLanguage({
     }
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // يمنع النزول لسطر جديد
+      onTranslate?.();
+    }
+  };
+
   return (
     <section
       data-translate={isTranslated}
@@ -79,7 +86,8 @@ function DetectLanguage({
               maxLength={500}
               dir="auto"
               value={inputText}
-              onChange={(e) => setInputText?.(e.target.value)}></textarea>
+              onChange={(e) => setInputText?.(e.target.value)}
+              onKeyDown={handleKeyDown}></textarea>
 
             <div
               data-counter={
@@ -118,8 +126,10 @@ function DetectLanguage({
             data-copied={copied || undefined}
             className="group p-2.5 border border-(--border-content) rounded-xl transition duration-300 hover:bg-(--white) relative">
             <img src={copy} alt="image-copy" />
-            
-            <span className="text-sm text-(--white) absolute -top-full left-1/2 -translate-x-1/2 bg-green-500 p-1.25 rounded-lg transition duration-300 scale-0 origin-bottom group-data-copied:scale-100">Copied!</span>
+
+            <span className="text-sm text-(--white) absolute -top-full left-1/2 -translate-x-1/2 bg-green-500 p-1.25 rounded-lg transition duration-300 scale-0 origin-bottom group-data-copied:scale-100">
+              Copied!
+            </span>
           </button>
         </div>
 
