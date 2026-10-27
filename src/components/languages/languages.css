@@ -1,0 +1,7 @@
+.languages button {
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--white);
+  }
+}

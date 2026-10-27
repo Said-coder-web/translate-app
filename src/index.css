@@ -1,0 +1,57 @@
+@import "tailwindcss";
+/*=== Start Global Rule ===*/
+:root {
+  --focus-language: #4d5562;
+  --border-box: #4d5562;
+  --border-content: #394150;
+  --bg-translate: #212936cc;
+  --bg-content: #121826CC;
+  --blue: #263fa9;
+  --hover-blue: #7ca9f3;
+  --white: #f9fafb;
+  --black: #040711;
+  --text: #6c727f;
+  --counter: #D2D5DA;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("./assets/images/hero_img.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-color: var(--black);
+  background-size: contain;
+  padding: 1rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 100%;
+  margin-inline: auto;
+
+  @media (min-width: 620px) {
+    max-width: 879px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1206px;
+  }
+}
+/*=== End Global Rule ===*/
