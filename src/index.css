@@ -5,13 +5,13 @@
   --border-box: #4d5562;
   --border-content: #394150;
   --bg-translate: #212936cc;
-  --bg-content: #121826CC;
+  --bg-content: #121826cc;
   --blue: #263fa9;
   --hover-blue: #7ca9f3;
   --white: #f9fafb;
   --black: #040711;
   --text: #6c727f;
-  --counter: #D2D5DA;
+  --counter: #d2d5da;
 }
 
 * {
@@ -26,7 +26,10 @@ body {
   background-position: top center;
   background-color: var(--black);
   background-size: contain;
-  padding: 1rem;
+
+  @media (max-width: 1350px) {
+    padding: 0 1rem 1rem 1rem;
+  }
 }
 
 ul {
@@ -36,10 +39,6 @@ ul {
 a {
   text-decoration: none;
   color: initial;
-}
-
-button {
-  cursor: pointer;
 }
 
 .container {

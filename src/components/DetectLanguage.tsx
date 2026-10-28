@@ -104,13 +104,13 @@ function DetectLanguage({
             </div>
           </>
         ) : (
-          <p
+          <div
             data-loading={loading}
             className="w-full h-34.5 pb-2.5 text-4 font-semibold text-(--white) resize-none scrollbar-thin scrollbar-track-transparent scrollbar-thumb-(--focus-language) data-[loading=true]:flex data-[loading=true]:items-center data-[loading=true]:justify-center overflow-y-auto">
             {loading && <Loading />}
             {!loading && data && data?.responseData?.translatedText}
             {!loading && error && "No result!"}
-          </p>
+          </div>
         )}
       </div>
 
@@ -118,13 +118,14 @@ function DetectLanguage({
         <div className="left flex items-center gap-2">
           <button
             onClick={handleSpeak}
-            className="p-2.5 border border-(--border-content) rounded-xl transition duration-300 hover:bg-(--white)">
+            className="cursor-pointer p-2.5 border border-(--border-content) rounded-[14px] transition duration-300 hover:bg-(--white)">
             <img src={sound} alt="image-sound" />
           </button>
+
           <button
             onClick={handleCopy}
             data-copied={copied || undefined}
-            className="group p-2.5 border border-(--border-content) rounded-xl transition duration-300 hover:bg-(--white) relative">
+            className="group cursor-pointer  p-2.5 border border-(--border-content) rounded-[14px] transition duration-300 hover:bg-(--white) relative">
             <img src={copy} alt="image-copy" />
 
             <span className="text-sm text-(--white) absolute -top-full left-1/2 -translate-x-1/2 bg-green-500 p-1.25 rounded-lg transition duration-300 scale-0 origin-bottom group-data-copied:scale-100">
@@ -136,8 +137,9 @@ function DetectLanguage({
         {isTranslated && (
           <div className="right">
             <button
+              disabled={!inputText}
               onClick={onTranslate}
-              className="px-7.5 py-4 flex items-center gap-3.75 bg-(--blue) border border-(--hover-blue) rounded-[10px] transition duration-300 hover:shadow-[0_0_20px_rgba(74,102,232,0.3)]">
+              className="cursor-pointer h-12 w-38 flex items-center justify-center gap-3.75 bg-(--blue) border border-(--hover-blue) rounded-[10px] transition duration-300 hover:shadow-[0_0_20px_rgba(74,102,232,0.3)] disabled:opacity-70 disabled:cursor-no-drop disabled:hover:shadow-none">
               <img src={translate} alt="image-translate" />
               <span>Translate</span>
             </button>

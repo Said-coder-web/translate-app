@@ -45,7 +45,7 @@ function Languages({defaultLanguage, onSelectLanguage}: LanguagesProps) {
         <button
           key={i}
           data-same={activeCode === language.code || undefined}
-          className="px-3.25 py-3 hover:text-(--white) data-same:bg-(--focus-language) data-same:text-(--white) data-same:rounded-[10px] "
+          className="cursor-pointer w-18 h-8.25 text-[12px] hover:text-(--white) data-same:bg-(--focus-language) data-same:text-(--white) rounded-[10px] "
           onClick={() => handleLanguageSelect(language.code)}>
           {language.name}
         </button>
@@ -57,7 +57,7 @@ function Languages({defaultLanguage, onSelectLanguage}: LanguagesProps) {
             .slice(2)
             .some((language) => activeCode === language.code) || undefined
         }
-        className="px-3.25 py-3 flex items-center gap-2 data-same:bg-(--focus-language) data-same:text-(--white) data-same:rounded-[10px]"
+        className="cursor-pointer px-2.5 w-fit h-8.25 text-[12px] flex items-center justify-center gap-2 data-same:bg-(--focus-language) data-same:text-(--white) data-same:rounded-[10px]"
         onClick={() => setShowMenu(!showMenu)}>
         <span>{selectedInMenu}</span>
         <img
@@ -69,12 +69,12 @@ function Languages({defaultLanguage, onSelectLanguage}: LanguagesProps) {
 
       <ul
         data-show-menu={showMenu}
-        className="data-[show-menu=false]:opacity-0 data-[show-menu=false]:-translate-y-5 data-[show-menu=false]:invisible transition duration-300 absolute top-12 right-0 max-h-50 bg-(--black) border border-(--border-box) rounded-lg w-[50%] overflow-y-auto shadow-xl z-10 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-(--focus-language) data-showMenu:opacity-100 data-showMenu:translate-y-0 data-showMenu:visible">
+        className="cursor-pointer data-[show-menu=false]:opacity-0 data-[show-menu=false]:-translate-y-5 data-[show-menu=false]:invisible transition duration-300 absolute top-12 right-0 max-h-50 bg-(--black) border border-(--border-box) rounded-lg w-[50%] overflow-y-auto shadow-xl z-10 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-(--focus-language) data-showMenu:opacity-100 data-showMenu:translate-y-0 data-showMenu:visible p-1.25">
         {languageMenu.slice(2).map((language, i) => (
           <li key={i}>
             <button
               onClick={() => handleMenueSelect(language.name, language.code)}
-              className="px-3.25 py-3 w-full text-left hover:bg-(--focus-language)">
+              className="cursor-pointer px-3.25 py-2 w-full text-left hover:bg-(--focus-language) rounded-[5px]">
               {language.name}
             </button>
           </li>
